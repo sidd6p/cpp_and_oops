@@ -7,17 +7,21 @@ class customers;
 class customers{
   string name;
   int amount;
+  static int customers_number;
   public:
   customers();
   void set_customer_name(string name);
   void set_customer_amount(int amount);
   string get_customer_name();
   int get_customer_amount();
+  ~customers();
 };
+
+int customers :: customers_number = 0;
 
 customers :: customers(){
   name =  "your_name";
-  amount = 0;
+  customers_number++;
 }
 void customers :: set_customer_name(string name){
   this->name = name;
@@ -34,3 +38,8 @@ int customers :: get_customer_amount(){
     return(this->amount);
 }
 
+customers :: ~customers(){
+    this->name = "enter_your_name";
+    this->amount = 0;
+    customers_number--;
+}
