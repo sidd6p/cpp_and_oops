@@ -4,22 +4,22 @@ using namespace std;
 
 class customers;
 
-class customer{
+class customers{
+    public:
   string name;
   int amount;
-public:
-  customer();
+  customers();
   void set_customer_name(string name);
   void set_customer_amount(int amount);
 };
 
-customer :: customer(){
+customers :: customers(){
   name =  "your_name";
   amount = 0;
 }
-customer :: set_customer_name(string name){
+void customers :: set_customer_name(string name){
   this->name = name;
 }
-customer :: set_customer_amount(int amount){
+void customers :: set_customer_amount(int amount){
   this->amount = amount;
 }
