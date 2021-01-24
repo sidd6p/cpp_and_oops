@@ -42,5 +42,8 @@ customers :: ~customers(){
 }
 
 int customers :: total_customer(){
+    if(customers_number > 0)
     return customers_number;
+    else
+        return 0;
 }
