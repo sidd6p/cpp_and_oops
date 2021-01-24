@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
   cout<<"Started";
-  customer c1;
+  customers c1;
   c1.name = "siddhartha";
   c1.amount = 1000;
   cout<<c1.name;
