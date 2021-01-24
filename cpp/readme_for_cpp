@@ -1,2 +1,5 @@
 https://www.geeksforgeeks.org/new-vs-operator-new-in-cpp/#:~:text=The%20new%20operator%20is%20an,memory%20to%20the%20pointer%20variable.
 https://www.geeksforgeeks.org/static-variables-in-c/
+
+A static member function differs from a regular member function in that it can be called without an instance of a class, and since it has no instance, it cannot access non-static members of the class. 
+Static variables are useful when you want to have a function for a class that definitely absolutely does not refer to any instance members, or for managing static member variables.

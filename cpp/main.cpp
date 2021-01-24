@@ -11,9 +11,11 @@ int main(){
   c2->set_customer_amount(1000);
   cout<<c1.get_customer_name();
   cout<<c1.get_customer_amount();
+  cout<<"\n";
   cout<<c2->get_customer_name();
   cout<<c2->get_customer_amount();
-  cout<<"Total number of customers = "<<
+  cout<<"\n";
+  cout<<"Total number of customers = "<<customers::total_customer();
   c1.~customers();
   c2->~customers();
   delete c2;
