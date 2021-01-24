@@ -14,7 +14,6 @@ int main(){
   cout<<c1.get_customer_name()<<"\t";
   cout<<c1.get_customer_amount();
   cout<<"\n";
-
   cout<<c2->get_customer_name()<<"\t";
   cout<<c2->get_customer_amount();
   cout<<"\n";
