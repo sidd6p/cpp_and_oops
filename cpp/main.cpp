@@ -2,7 +2,7 @@
 #include"Object_class.h"
 using namespace std;
 int main(){
-  cout<<"Started";
+  cout<<"Started"<<endl;
   customers c1;
   customers *c2 = new customers();
 
@@ -11,10 +11,10 @@ int main(){
   c2->set_customer_name("sarthak");
   c2->set_customer_amount(1000);
 
-  cout<<c1.get_customer_name();
+  cout<<c1.get_customer_name()<<"\t";
   cout<<c1.get_customer_amount();
   cout<<"\n";
-  cout<<c2->get_customer_name();
+  cout<<c2->get_customer_name()<<"\t";
   cout<<c2->get_customer_amount();
   cout<<"\n";
   cout<<"Total number of customers = "<<customers::total_customer();
