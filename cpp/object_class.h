@@ -20,8 +20,6 @@ int customers :: customers_number = 0;
 customers :: customers(){
   name =  "your_name";
   customers_number = customers_number + 1;
-  cout<<customers_number;
-  cout<<"construtor is called\n";
 }
 void customers :: set_customer_name(string name){
   this->name = name;
