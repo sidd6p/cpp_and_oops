@@ -7,7 +7,7 @@ class child_customers{
     string name;
     int amount;
     static int customer_number;
-    friend class customers;
+    friend class customers;//customer is friend of child_class so it have access to the child_customers class.
     public:
     child_customers();
     child_customers(string , int);//constructor overloading
