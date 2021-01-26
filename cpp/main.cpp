@@ -1,6 +1,6 @@
 #include<iostream>
 #include"Object_class.h"
-#include"Object_class_2.h"
+
 using namespace std;
 
 int main(){
