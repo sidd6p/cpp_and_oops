@@ -19,6 +19,29 @@ class child_customers{
     ~child_customers();
 };
 
+class customers{
+
+  string name;
+  int amount;
+  static int customers_number;
+
+  public:
+
+  customers();
+  customers(string , int);//constructor overloading
+  void set_customer_name(string name);
+  void set_customer_amount(int amount);
+  string get_customer_name();
+  int get_customer_amount();
+  static int total_customer();
+  //A static member function differs from a regular member function in that it can be called without an instance of a class,
+  //and since it has no instance, it cannot access non-static members of the class.
+  customers(const customers &old_obj);
+  //there is an implicit copy constructor for every class.
+  ~customers();
+  void child_modify(child_customers &cc, int amount);
+};
+
 int child_customers :: customer_number = 0;
 
 child_customers :: child_customers(){
@@ -64,27 +87,6 @@ child_customers :: ~child_customers(){
     cout<<"destructor for child customer is called\n";
 }
 
-class customers{
-
-  string name;
-  int amount;
-  static int customers_number;
-
-  public:
-
-  customers();
-  customers(string , int);//constructor overloading
-  void set_customer_name(string name);
-  void set_customer_amount(int amount);
-  string get_customer_name();
-  int get_customer_amount();
-  static int total_customer();
-  //A static member function differs from a regular member function in that it can be called without an instance of a class,
-  //and since it has no instance, it cannot access non-static members of the class.
-  customers(const customers &old_obj);
-  //there is an implicit copy constructor for every class.
-  ~customers();
-};
 
 int customers :: customers_number = 0;
 
@@ -138,3 +140,12 @@ int customers :: total_customer(){
         return 0;
 }
 
+void customers :: child_modify(child_customers &cc, int amount){
+    if(cc.amount >= amount){
+    cc.amount = cc.amount - amount;
+    this->amount = this->amount + amount;
+    }
+    else{
+        cout<<"Can't modify the child account";
+    }
+}
