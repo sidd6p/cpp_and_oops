@@ -23,14 +23,14 @@ child_customers :: child_customers(){
     name = "enter_your_name";
     amount = 0;
     customer_number++;
-    cout<<"child constructor is called";
+    cout<<"child constructor is called\n";
 }
 
 child_customers :: child_customers(string name, int amount){
     this->name = name;
     this->amount = amount;
     customer_number++;
-    cout<<"child constructor is called";
+    cout<<"child constructor is called\n";
 }
 
 void child_customers :: set_customer_name(string name){
@@ -59,6 +59,6 @@ child_customers :: ~child_customers(){
     this->name = "enter_your_name";
     this->amount = 0;
     --customer_number;
-    cout<<"destructor for child is called\n";
+    cout<<"destructor for child customer is called\n";
 }
 
