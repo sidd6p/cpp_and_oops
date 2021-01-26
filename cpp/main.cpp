@@ -1,11 +1,13 @@
 #include<iostream>
 #include"Object_class.h"
+#include"Object_class_2.h"
 using namespace std;
 
 int main(){
 
   cout<<"Started"<<endl;
 
+  child_customers cc1;
   customers c1;
   customers *c2 = new customers();
   customers();//When the constructor is called explicitly the compiler creates a nameless temporary object and it is immediately destroyed.

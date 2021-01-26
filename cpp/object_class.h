@@ -1,6 +1,5 @@
 using namespace std;
 class customers;
-
 class customers{
 
   string name;
