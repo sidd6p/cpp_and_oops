@@ -8,7 +8,9 @@ class child_customers{
     int amount;
     static int customer_number;
     friend class customers;//customer is friend of child_class so it have access to the child_customers class.
+    
     public:
+    
     child_customers();
     child_customers(string , int);//constructor overloading
     void set_customer_name(string name);
@@ -43,6 +45,7 @@ class customers{
 };
 
 int child_customers :: customer_number = 0;
+int customers :: customers_number = 0;
 
 child_customers :: child_customers(){
     name = "enter_your_name";
@@ -86,9 +89,6 @@ child_customers :: ~child_customers(){
     --customer_number;
     cout<<"destructor for child customer is called\n";
 }
-
-
-int customers :: customers_number = 0;
 
 customers :: customers(){
   name =  "your_name";
