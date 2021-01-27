@@ -7,6 +7,7 @@ using namespace std;
 class child_customer;
 class customer;
 class admin;
+class verified;
 
 class admin{
    public:
@@ -14,10 +15,10 @@ class admin{
 };
 
 class child_customer{
-    string name;
     int amount;
     static int customer_number;
     friend class customer;
+    string name;
 
     public:
 
@@ -35,9 +36,11 @@ int child_customer :: customer_number = 0;
 
 class customer{
 
-  string name;
   int amount;
   static int customer_number;
+
+  protected:
+  string name;
 
   public:
 
@@ -52,6 +55,15 @@ class customer{
   ~customer();
   void child_modify(child_customer &cc, int amount);
   friend void admin :: delete_user(customer &user);
+};
+
+class verified : public customer{
+  int customer_id;
+  public:
+  verified();
+  void set_id(int);
+  int get_id();
+  ~verified();
 };
 
 int customer :: customer_number = 0;
@@ -86,12 +98,6 @@ int child_customer :: get_customer_amount(){
     return (this->amount);
 }
 
-/*int child_customer :: total_customer(){
-    if(customer_number > 0)
-    return customer_number;
-    else
-        return 0;
-}*/
 child_customer :: ~child_customer(){
     this->name = "enter_your_name";
     this->amount = 0;
@@ -172,4 +178,19 @@ void total_customer(){
 
 void admin :: delete_user(customer &user){
     user.amount = 0;
+}
+
+verified :: verified(){
+  customer_id = 0000;
+}
+
+void verified :: set_id(int id){
+  this->customer_id = id;
+}
+
+int verified :: get_id(){
+  return customer_id;
+}
+verified :: ~verified(){
+  customer_id = 0;
 }
