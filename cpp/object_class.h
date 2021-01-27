@@ -1,86 +1,91 @@
+//A static member function differs from a regular member function in that it can be called without an instance of a class,
+//and since it has no instance, it cannot access non-static members of the class.
+//customer is friend of child_class so it have access to the child_customer class.
+//there is an implicit copy constructor for every class.
 using namespace std;
 
-class child_customers;
-class customers;
+class child_customer;
+class customer;
 
-class child_customers{
+class child_customer{
     string name;
     int amount;
     static int customer_number;
-    friend class customers;//customer is friend of child_class so it have access to the child_customers class.
+    friend class customer;
+
     public:
-    child_customers();
-    child_customers(string , int);//constructor overloading
+
+    child_customer();
+    child_customer(string , int);//constructor overloading
     void set_customer_name(string name);
     void set_customer_amount(int amount);
     string get_customer_name();
     int get_customer_amount();
-    static int total_customer();
-    ~child_customers();
+    void friend total_customer();
+    ~child_customer();
 };
 
-class customers{
+int child_customer :: customer_number = 0;
+
+class customer{
 
   string name;
   int amount;
-  static int customers_number;
+  static int customer_number;
 
   public:
 
-  customers();
-  customers(string , int);//constructor overloading
+  customer();
+  customer(string , int);//constructor overloading
   void set_customer_name(string name);
   void set_customer_amount(int amount);
   string get_customer_name();
   int get_customer_amount();
-  static int total_customer();
-  //A static member function differs from a regular member function in that it can be called without an instance of a class,
-  //and since it has no instance, it cannot access non-static members of the class.
-  customers(const customers &old_obj);
-  //there is an implicit copy constructor for every class.
-  ~customers();
-  void child_modify(child_customers &cc, int amount);
+  void friend total_customer();
+  customer(const customer &old_obj);
+  ~customer();
+  void child_modify(child_customer &cc, int amount);
 };
 
-int child_customers :: customer_number = 0;
+int customer :: customer_number = 0;
 
-child_customers :: child_customers(){
+child_customer :: child_customer(){
     name = "enter_your_name";
     amount = 0;
     customer_number++;
     cout<<"child constructor is called\n";
 }
 
-child_customers :: child_customers(string name, int amount){
+child_customer :: child_customer(string name, int amount){
     this->name = name;
     this->amount = amount;
     customer_number++;
     cout<<"child constructor is called\n";
 }
 
-void child_customers :: set_customer_name(string name){
+void child_customer :: set_customer_name(string name){
     this->name = name;
 }
 
-void child_customers :: set_customer_amount(int amount){
+void child_customer :: set_customer_amount(int amount){
     this->amount = amount;
 }
 
-string child_customers :: get_customer_name(){
+string child_customer :: get_customer_name(){
     return (this->name);
 }
 
-int child_customers :: get_customer_amount(){
+int child_customer :: get_customer_amount(){
     return (this->amount);
 }
 
-int child_customers :: total_customer(){
+/*int child_customer :: total_customer(){
     if(customer_number > 0)
     return customer_number;
     else
         return 0;
-}
-child_customers :: ~child_customers(){
+}*/
+child_customer :: ~child_customer(){
     this->name = "enter_your_name";
     this->amount = 0;
     --customer_number;
@@ -88,64 +93,72 @@ child_customers :: ~child_customers(){
 }
 
 
-int customers :: customers_number = 0;
+//int customer :: customer_number = 0;
 
-customers :: customers(){
+customer :: customer(){
   name =  "your_name";
   amount = 0;
-  customers_number = customers_number + 1;
+  customer_number = customer_number + 1;
   cout<<"constructor is called\n";
 }
 
-customers :: customers(string name, int amount){
+customer :: customer(string name, int amount){
     this->name = name;
     this->amount = amount;
-    customers_number = customers_number + 1;
+    customer_number = customer_number + 1;
 }
 
-void customers :: set_customer_name(string name){
+void customer :: set_customer_name(string name){
   this->name = name;
 }
 
-void customers :: set_customer_amount(int amount){
+void customer :: set_customer_amount(int amount){
   this->amount = amount;
 }
 
-string customers :: get_customer_name(){
+string customer :: get_customer_name(){
     return (this->name);
 }
 
-int customers :: get_customer_amount(){
+int customer :: get_customer_amount(){
     return(this->amount);
 }
 
-customers :: customers(const customers &old_obj){
+customer :: customer(const customer &old_obj){
     this->name = old_obj.name;
     this->amount = old_obj.amount;
-    customers_number = customers_number + 1;
+    customer_number = customer_number + 1;
     cout<<"copy constructor is called\n";
 }
 
-customers :: ~customers(){
+customer :: ~customer(){
     this->name = "enter_your_name";
     this->amount = 0;
-    --customers_number;
+    --customer_number;
     cout<<"destructor is called\n";
 }
 
-int customers :: total_customer(){
-    if(customers_number > 0)
-    return customers_number;
-    else
-        return 0;
-}
-
-void customers :: child_modify(child_customers &cc, int amount){
+void customer :: child_modify(child_customer &cc, int amount){
     if(cc.amount >= amount){
     cc.amount = cc.amount - amount;
     this->amount = this->amount + amount;
     }
     else{
         cout<<"Can't modify the child account";
+    }
+}
+
+void total_customer(){
+    if((customer :: customer_number) > 0){
+      cout<<"Total number of customer"<<customer :: customer_nuber<<"\n";
+    }
+    else{
+      cout<<"total number of customer is 0"<<"\n";
+    }
+    if((child_customer :: customer_number) > 0){
+      cout<<"total number of child customer is"<<child_customer :: customer_number<<"\n";
+    }
+    else{
+      cout<<"Total number of child_customer is 0"<<"\n";
     }
 }
