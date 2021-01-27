@@ -150,7 +150,7 @@ void customer :: child_modify(child_customer &cc, int amount){
 
 void total_customer(){
     if((customer :: customer_number) > 0){
-      cout<<"Total number of customer"<<customer :: customer_nuber<<"\n";
+      cout<<"Total number of customer"<<customer :: customer_number<<"\n";
     }
     else{
       cout<<"total number of customer is 0"<<"\n";
