@@ -6,6 +6,12 @@ using namespace std;
 
 class child_customer;
 class customer;
+class admin;
+
+class admin{
+   public:
+   void delete_user(customer &user);
+};
 
 class child_customer{
     string name;
@@ -45,6 +51,7 @@ class customer{
   customer(const customer &old_obj);
   ~customer();
   void child_modify(child_customer &cc, int amount);
+  friend void admin :: delete_user(customer &user);
 };
 
 int customer :: customer_number = 0;
@@ -161,4 +168,8 @@ void total_customer(){
     else{
       cout<<"Total number of child_customer is 0"<<"\n";
     }
+}
+
+void admin :: delete_user(customer &user){
+    user.amount = 0;
 }

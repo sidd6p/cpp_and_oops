@@ -19,6 +19,7 @@ int main(){
   cc1.set_customer_amount(10000);
   c2->set_customer_name("sarthak");
   c2->set_customer_amount(1000);
+  admin a1;
   //a→b is essentially a shorthand notation for (*a).b,
   //if a is a pointer to an object, then a->b is accessing the property b of the object that a points to.
 
@@ -53,7 +54,12 @@ int main(){
   cout<<cc1.get_customer_amount();
   cout<<"\n";
 
- total_customer();
+  a1.delete_user(c1);
+  cout<<c1.get_customer_name()<<"\t";
+  cout<<c1.get_customer_amount();
+  cout<<"\n";
+
+  total_customer();
 
   c1.~customer();//because of the explicit call to destructor, the destructor for c1 will be called twice.
   delete c2;//this will call destructor automatically, destructor will be called only once for object c2, since it is explicitly allocated in the memory.
