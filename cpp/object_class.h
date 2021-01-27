@@ -57,7 +57,7 @@ class customer{
   friend void admin :: delete_user(customer &user);
 };
 
-class verified : public customer{
+class verified : public customer, private child_customer{
   int customer_id;
   public:
   verified();
