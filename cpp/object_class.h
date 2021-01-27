@@ -1,7 +1,4 @@
-//A static member function differs from a regular member function in that it can be called without an instance of a class,
-//and since it has no instance, it cannot access non-static members of the class.
 //customer is friend of child_class so it have access to the child_customer class.
-//there is an implicit copy constructor for every class.
 using namespace std;
 
 class child_customer;
@@ -24,10 +21,10 @@ class child_customer{
 
     child_customer();
     child_customer(string , int);//constructor overloading
-    void set_customer_name(string name);
-    void set_customer_amount(int amount);
-    string get_customer_name();
-    int get_customer_amount();
+    virtual void set_customer_name(string name);
+    virtual void set_customer_amount(int amount);
+    virtual string get_customer_name();
+    virtual int get_customer_amount();
     void friend total_customer();
     ~child_customer();
 };
@@ -104,9 +101,6 @@ child_customer :: ~child_customer(){
     --customer_number;
     cout<<"destructor for child customer is called\n";
 }
-
-
-//int customer :: customer_number = 0;
 
 customer :: customer(){
   name =  "your_name";

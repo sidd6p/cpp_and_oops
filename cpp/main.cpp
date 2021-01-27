@@ -24,15 +24,9 @@ int main(){
   v1.set_customer_name("me as verified");
   v1.set_customer_amount(100000);
   v1.set_id(1);
-  //a→b is essentially a shorthand notation for (*a).b,
-  //if a is a pointer to an object, then a->b is accessing the property b of the object that a points to.
-
   customer c3 = c1;//copy constructor
   customer c4;
   c4 = (*c2);//assignment operator
-
-
-
   cout<<c1.get_customer_name()<<"\t";
   cout<<c1.get_customer_amount();
   cout<<"\n";
