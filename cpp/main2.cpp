@@ -7,6 +7,7 @@ it has to be called through parent class. It is allowed only when ‘virtual’ 
 #include<iostream>
 using namespace std;
 
+
 class great_p{
   int i = 1000;
 public:
@@ -17,7 +18,7 @@ public:
     cout<<"constructor(paramrtric) of great_p\n";
   }
   void show(){
-    cout<<i;
+    cout<<i<<"\n";
   }
 };
 
@@ -35,7 +36,7 @@ public:
   }
 };
 
-class c1 : public p1, public p2{
+class c1 : public p1, public p2{//this class will call constructor of all parents and grandparents
 public:
   c1(int x) : p1(x), p2(x), great_p(x){//in this way we can call paramrtric constructor of parent and grand_parent
     cout<<"constructor of c1 is called\n";
@@ -43,10 +44,14 @@ public:
 };
 
 
+
 class A
 {
-  int x;
+int x;
 public:
+  A(){
+   cout<<"constructor of A is called\n";
+  }
   void setX(int i) {x = i;}
   void print() { cout << x; }
 };
@@ -54,17 +59,23 @@ public:
 class B: virtual public A
 {
 public:
-  B()  { setX(10); }
+  B()  {
+      cout<<"constructor of B is called\n";
+      setX(10); }
 };
 
 class C: virtual public A
 {
 public:
-  C()  { setX(20); }
+  C()  {
+      cout<<"constructor of C is called\n";
+      setX(20); }
 };
 
 class D: public C, public B {//this will set x = 10, because it will call constructor of "C" and then the constructor of "B".
 };
+
+
 
 int main(){
   c1 child_1(10);

@@ -25,7 +25,7 @@ class child_customer{
     void set_customer_amount(int amount);
     string get_customer_name();
     int get_customer_amount();
-    void friend total_customer();
+    void friend total_customer();//for accessing customer_number
     ~child_customer();
 };
 
@@ -35,8 +35,6 @@ class customer{
 
   int amount;
   static int customer_number;
-
-  protected:
   string name;
 
   public:
@@ -47,11 +45,11 @@ class customer{
   void set_customer_amount(int amount);
   string get_customer_name();
   int get_customer_amount();
-  void friend total_customer();
+  void friend total_customer();//for accessing customer_number
   customer(const customer &old_obj);
   ~customer();
   void child_modify(child_customer &cc, int amount);
-  friend void admin :: delete_user(customer &user);
+  friend void admin :: delete_user(customer &user);//for accessing amount
 };
 
 int customer :: customer_number = 0;
