@@ -20,10 +20,6 @@ int main(){
   c2->set_customer_name("sarthak");
   c2->set_customer_amount(1000);
   admin a1;
-  verified v1;
-  v1.set_customer_name("me as verified");
-  v1.set_customer_amount(100000);
-  v1.set_id(1);
   customer c3 = c1;//copy constructor
   customer c4;
   c4 = (*c2);//assignment operator
@@ -47,10 +43,6 @@ int main(){
   cout<<"\n";
   cout<<cc2.get_customer_name()<<"\t";
   cout<<cc2.get_customer_amount();
-  cout<<"\n";
-  cout<<v1.get_customer_name()<<"\t";
-  cout<<v1.get_customer_amount();
-  cout<<v1.get_id();
   cout<<"\n";
 
   c1.child_modify(cc1, 500);

@@ -21,10 +21,10 @@ class child_customer{
 
     child_customer();
     child_customer(string , int);//constructor overloading
-    virtual void set_customer_name(string name);
-    virtual void set_customer_amount(int amount);
-    virtual string get_customer_name();
-    virtual int get_customer_amount();
+    void set_customer_name(string name);
+    void set_customer_amount(int amount);
+    string get_customer_name();
+    int get_customer_amount();
     void friend total_customer();
     ~child_customer();
 };
@@ -52,15 +52,6 @@ class customer{
   ~customer();
   void child_modify(child_customer &cc, int amount);
   friend void admin :: delete_user(customer &user);
-};
-
-class verified : public customer, private child_customer{
-  int customer_id;
-  public:
-  verified();
-  void set_id(int);
-  int get_id();
-  ~verified();
 };
 
 int customer :: customer_number = 0;
@@ -172,19 +163,4 @@ void total_customer(){
 
 void admin :: delete_user(customer &user){
     user.amount = 0;
-}
-
-verified :: verified(){
-  customer_id = 0000;
-}
-
-void verified :: set_id(int id){
-  this->customer_id = id;
-}
-
-int verified :: get_id(){
-  return customer_id;
-}
-verified :: ~verified(){
-  customer_id = 0;
 }
