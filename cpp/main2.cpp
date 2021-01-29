@@ -49,6 +49,7 @@ class A
 {
 int x;
 public:
+  int y;
   A(){
    cout<<"constructor of A is called\n";
   }
@@ -59,6 +60,7 @@ public:
 class B: virtual public A
 {
 public:
+  int b;
   B()  {
       cout<<"constructor of B is called\n";
       setX(10); }
@@ -67,12 +69,15 @@ public:
 class C: virtual public A
 {
 public:
+  int c;
   C()  {
       cout<<"constructor of C is called\n";
       setX(20); }
 };
 
 class D: public C, public B {//this will set x = 10, because it will call constructor of "C" and then the constructor of "B".
+public:
+  int d;
 };
 
 
@@ -82,5 +87,17 @@ int main(){
   child_1.show();
   D d;
   d.print();
+  D d_1;
+  d_1.B::y = 1;//Avoiding ambiguity using scope resolution operator
+  d_1.C::y = 10;
+  d_1.b = 100;
+  d_1.c = 1000;
+  d_1.d = 10000;
+  cout<< "\n A from ClassB  : "<< d_1.B::y;
+  cout<< "\n A from ClassC  : "<< d_1.C::y;
+  cout<< "\n B : "<< d_1.b;
+  cout<< "\n C : "<< d_1.c;
+  cout<< "\n D : "<< d_1.d;
+
   return 0;
 }

@@ -19,9 +19,6 @@ class Derived : public Base {
 
 // CPP program to illustrate
 // working of Virtual Functions
-#include <iostream>
-using namespace std;
-
 class base {
 public:
     void fun_1() { cout << "base-1\n"; }
