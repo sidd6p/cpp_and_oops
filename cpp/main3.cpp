@@ -5,16 +5,25 @@ using namespace std;
 
 class Base {
    public:
+    virtual void do_nothing() = 0;//A pure virtual function is declared by assigning 0 in declaration.
     virtual void print() {
         cout << "Base Function" << endl;
     }
+    virtual ~Base() = 0;
 };
+Base :: ~Base(){}//this is needed for using the virtual destructor.
+
 
 class Derived : public Base {
    public:
+    void do_nothing(){ cout<<"pure virtual function";}
     void print() {
         cout << "Derived Function" << endl;
     }
+    ~Derived(){
+     cout<<"destructor of derived is called";
+     }
+
 };
 
 // CPP program to illustrate
@@ -43,11 +52,12 @@ int main() {
     base1->print();
 
     /*Base base2;
-    Derived *derived2 = base2;
-    derived2 ->print();*/
+    Derived *derived2 = &base2;
+    derived2->print();*/
 
 
     base* p;
+    //base *p = new derived;
     derived obj1;
     p = &obj1;
 
@@ -63,6 +73,7 @@ int main() {
 
     // Late binding (RTP)
     p->fun_4();
+    /*p->fun_4(5);*/
 
     // Early binding but this function call is
     // illegal(produces error) becasue pointer
