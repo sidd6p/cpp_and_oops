@@ -11,6 +11,8 @@ using namespace std;
 
 int main(){
 
+  cout<<(6 % 3);
+
   int j = 0;
 
   vector <int> v1{1, 2, 3, 4, 5, 6, 7, 8, 9};
