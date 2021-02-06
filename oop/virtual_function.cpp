@@ -5,7 +5,7 @@ using namespace std;
 
 class Base {
    public:
-    virtual void do_nothing() = 0;//A pure virtual function is declared by assigning 0 in declaration.
+    virtual void do_nothing() = 0;//A pure virtual function is declared by assigning 0 in declaration.//this must be overridden in derived class, otherwise it and deruved class be abstract class.
     //virtual void do_nothing(); this is invalid as pure virtual function must be assigned to 0.
     virtual void print() {
         cout << "Base Function" << endl;

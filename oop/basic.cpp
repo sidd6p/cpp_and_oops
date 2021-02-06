@@ -1,4 +1,4 @@
-#include<iostream>>
+#include<iostream>
 #include"basic.h"
 
 using namespace std;
@@ -43,6 +43,8 @@ int main(){
   cout<<"\n";
   cout<<cc2.get_customer_name()<<"\t";
   cout<<cc2.get_customer_amount();
+  cout<<"\n";
+  child_customer :: for_statics();
   cout<<"\n";
 
   c1.child_modify(cc1, 500);

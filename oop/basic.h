@@ -1,3 +1,4 @@
+//https://www.tutorialspoint.com/cplusplus/cpp_static_members.htm
 //customer is friend of child_class so it have access to the child_customer class.
 using namespace std;
 
@@ -16,7 +17,7 @@ class child_customer{
     static int customer_number;
     friend class customer;
     string name;
-
+    static int x;
     public:
 
     child_customer();
@@ -26,8 +27,11 @@ class child_customer{
     string get_customer_name();
     int get_customer_amount();
     void friend total_customer();//for accessing customer_number
+    static void for_statics();
     ~child_customer();
 };
+
+int child_customer :: x = 0;
 
 int child_customer :: customer_number = 0;
 
@@ -89,6 +93,11 @@ child_customer :: ~child_customer(){
     this->amount = 0;
     --customer_number;
     cout<<"destructor for child customer is called\n";
+}
+
+void child_customer :: for_statics(){
+  cout<<"called statics function";
+  cout<<"static property is "<<x;
 }
 
 customer :: customer(){
