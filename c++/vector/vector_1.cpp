@@ -11,8 +11,6 @@ using namespace std;
 
 int main(){
 
-  cout<<(6 % 3);
-
   int j = 0;
 
   vector <int> v1{1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -22,7 +20,7 @@ int main(){
   cout<<"Enter the data for the vector v3.";
   for(int i = 0; i < 5; i++){
     cin>>j;
-    v3.push_back(j);
+    v3.push_back(j);//insert element at the last. opposite is pop_back(), to pop the element form the back.
   }
   cout<<"v3 vector is ";
   for(auto i = v3.begin(); i != v3.end(); i++){
@@ -52,7 +50,7 @@ int main(){
   cout<<endl;
 
   cout<<"v1 vector after swaping with v3 ";
-  v1.swap(v3);
+  v1.swap(v3);//all elemet of v1 and v3 will be swapped.
   for(auto i = v1.begin(); i != v1.end(); i++){
     cout<<*i<<" ";
   }
@@ -68,7 +66,7 @@ int main(){
   cout<<v1.back()<<endl;
   cout<<"First element from the begenning "<<*v1.begin()<<endl;////Returns an iterator pointing to the first element in the vector.
   cout<<"Last element from the ending "<<*v1.end()<<endl;//why is it returning 'zero'??? //Returns an iterator pointing to the THEORETICAL element that follows the last element in the vector
-  cout<<"begenning elemet from end "<<*v1.rbegin()<<endl;
+  cout<<"begenning elemet from end "<<*v1.rbegin()<<endl;//The function returns a reverse iterator pointing to the last element in the container.
   cout<<"Last element from the front "<<*v1.rend()<<endl;//returns a reverse iterator pointing to the THEORETICAL element right before the first element in the array container.
  //begin() and end() function return an iterator(like a pointer) initialized to the first or the last element of the container that can be used to iterate through the collection,
  // while front() and back() function just return a reference to the first or the last element of the container.
@@ -77,7 +75,7 @@ int main(){
   cout<<"\n"<<"Maximum number of element in the v1 can store in it "<<v1.max_size();//Returns the maximum number of elements that the vector can hold.
   cout<<"\n"<<"Capacity of v1 is "<<v1.capacity()<<endl;//Returns the size of the storage space currently allocated to the vector expressed as number of elements.
 
-  v1.resize(3);// Resizes the container so that it contains ‘n’ elements. But it will not destriy the elements.
+  v1.resize(3);// Resizes the container so that it contains ‘n’ elements. But it will not delete the elements.
   j = 0;
   for(auto i = v1.begin(); j != 9; j++){//resize will not delete the element of the vector v1.
     cout<<*i<<" ";
