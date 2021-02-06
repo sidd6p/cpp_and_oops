@@ -1,5 +1,5 @@
 #include<iostream>>
-#include"object_class.h"
+#include"basic.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ int main(){
   admin a1;
   customer c3 = c1;//copy constructor
   customer c4;
-  c4 = (*c2);//assignment operator
+  c4 = (*c2);//assignment operator and this will not call the copy constructor.
   cout<<c1.get_customer_name()<<"\t";
   cout<<c1.get_customer_amount();
   cout<<"\n";

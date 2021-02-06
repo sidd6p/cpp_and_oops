@@ -6,12 +6,15 @@ using namespace std;
 class Base {
    public:
     virtual void do_nothing() = 0;//A pure virtual function is declared by assigning 0 in declaration.
+    //virtual void do_nothing(); this is invalid as pure virtual function must be assigned to 0.
     virtual void print() {
         cout << "Base Function" << endl;
     }
-    virtual ~Base() = 0;
+    virtual ~Base();
 };
-Base :: ~Base(){}//this is needed for using the virtual destructor.
+Base :: ~Base(){
+  cout<<"destructor of Base";
+}//this is needed for using the virtual destructor.
 
 
 class Derived : public Base {
@@ -26,8 +29,6 @@ class Derived : public Base {
 
 };
 
-// CPP program to illustrate
-// working of Virtual Functions
 class base {
 public:
     void fun_1() { cout << "base-1\n"; }
@@ -45,11 +46,12 @@ public:
 
 
 int main() {
-    Derived derived1;
+    Derived *derived1 = new Derived;
     // pointer of Base type that points to derived1
-    Base* base1 = &derived1;
+    Base* base1 = derived1;
     // calls member function of Derived class
     base1->print();
+    delete(base1);
 
     /*Base base2;
     Derived *derived2 = &base2;

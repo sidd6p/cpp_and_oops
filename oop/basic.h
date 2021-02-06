@@ -65,7 +65,7 @@ child_customer :: child_customer(string name, int amount){
     this->name = name;
     this->amount = amount;
     customer_number++;
-    cout<<"child constructor is called\n";
+    cout<<"child parameter constructor is called\n";
 }
 
 void child_customer :: set_customer_name(string name){
@@ -95,13 +95,14 @@ customer :: customer(){
   name =  "your_name";
   amount = 0;
   customer_number = customer_number + 1;
-  cout<<"constructor is called\n";
+  cout<<"customer constructor is called\n";
 }
 
 customer :: customer(string name, int amount){
     this->name = name;
     this->amount = amount;
     customer_number = customer_number + 1;
+    cout<<"customer parameter constructor is called\n";
 }
 
 void customer :: set_customer_name(string name){
@@ -122,16 +123,16 @@ int customer :: get_customer_amount(){
 
 customer :: customer(const customer &old_obj){
     this->name = old_obj.name;
-    this->amount = old_obj.amount;
+    this->amount = 0;
     customer_number = customer_number + 1;
-    cout<<"copy constructor is called\n";
+    cout<<"customer copy constructor is called\n";
 }
 
 customer :: ~customer(){
     this->name = "enter_your_name";
     this->amount = 0;
     --customer_number;
-    cout<<"destructor is called\n";
+    cout<<"destructor for customer is called\n";
 }
 
 void customer :: child_modify(child_customer &cc, int amount){
