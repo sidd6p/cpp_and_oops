@@ -7,7 +7,6 @@ it has to be called through parent class. It is allowed only when ‘virtual’ 
 #include<iostream>
 using namespace std;
 
-
 class great_p{
   int i = 1000;
 public:
