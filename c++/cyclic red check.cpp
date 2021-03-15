@@ -98,4 +98,5 @@ bool check_for_error(string &cfc){
         }
     }
     return false;
+
 }
